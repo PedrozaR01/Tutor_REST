@@ -16,17 +16,19 @@ public class TutorJoin implements Serializable {
     private String firstName;
     private String lastName;
     private String intro;
+    private String tutorImg;
     private Integer subjectId;
     private String subjectTitle;
 
     public TutorJoin() {
     }
 
-    public TutorJoin(Integer tutorId, String firstName, String lastName, String intro, Integer subjectId, String subjectTitle) {
+    public TutorJoin(Integer tutorId, String firstName, String lastName, String intro, String tutorImg, Integer subjectId, String subjectTitle) {
         this.tutor_id = tutorId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.intro = intro;
+        this.tutorImg = tutorImg;
         this.subjectId = subjectId;
         this.subjectTitle = subjectTitle;
     }
@@ -61,6 +63,14 @@ public class TutorJoin implements Serializable {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    public String getTutorImg() {
+        return tutorImg;
+    }
+
+    public void setTutorImg(String tutorImg) {
+        this.tutorImg = tutorImg;
     }
 
     public Integer getSubjectId() {

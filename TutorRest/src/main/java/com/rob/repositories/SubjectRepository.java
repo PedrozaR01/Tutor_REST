@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface SubjectRepository extends JpaRepository<Subject, Integer>{
     
-    @Query("SELECT new com.rob.entities.TutorJoin(t.tutor_id, t.firstName, t.lastName, t.intro, s.subjectId, s.subjectTitle) FROM Tutor t " 
+    @Query("SELECT new com.rob.entities.TutorJoin(t.tutor_id, t.firstName, t.lastName, t.intro, t.tutorImg, s.subjectId, s.subjectTitle) FROM Tutor t " 
             + " INNER JOIN t.subject s")
     List<TutorJoin> fectchTutorInnerJoin();    
     

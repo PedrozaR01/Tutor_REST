@@ -40,6 +40,8 @@ public class Tutor implements Serializable {
     private String lastName;
     @Column(name = "intro")
     private String intro;
+    @Column(name = "tutor_img")
+    private String tutorImg;
     @Column(name = "zip_code")
     private String zipCode;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tutor", targetEntity = Subject.class)
@@ -95,6 +97,14 @@ public class Tutor implements Serializable {
         this.intro = intro;
     }
 
+    
+    public String getTutorImg() {
+        return tutorImg;
+    }
+
+    public void setTutorImg(String tutorImg) {
+        this.tutorImg = tutorImg;
+    }
     public String getZipCode() {
         return zipCode;
     }
