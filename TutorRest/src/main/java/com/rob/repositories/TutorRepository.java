@@ -4,7 +4,7 @@
  */
 package com.rob.repositories;
 
-import com.rob.entities.Subject;
+import com.rob.entities.Tutor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Antonio Pedroza
  */
 @Repository
-public interface SubjectRepository extends JpaRepository<Subject, Integer>{
-    public Subject findBysubjectTitle(String subjectTitle);
+public interface TutorRepository extends JpaRepository<Tutor, Integer> {
+    
 }

@@ -5,16 +5,17 @@
 package com.rob.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 
 /**
  *
@@ -22,7 +23,9 @@ import org.hibernate.annotations.FetchMode;
  */
 
 @Entity
+@Table(name = "subject")
 public class Subject implements Serializable {
+    
     
     
     @Id
@@ -31,11 +34,8 @@ public class Subject implements Serializable {
     private Integer subjectId;
     @Column(name = "subject_title")
     private String subjectTitle;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tutor_id")
-    @Fetch(FetchMode.JOIN)
-    private Tutor tutor;
-
+    @ManyToMany(mappedBy = "subject", cascade = { CascadeType.ALL })
+    private Set<Tutor> tutor = new HashSet<Tutor>();
     
     public Integer getSubjectId() {
         return subjectId;
@@ -53,13 +53,14 @@ public class Subject implements Serializable {
         this.subjectTitle = subjectTitle;
     }
 
-    public Tutor getTutor() {
+    public Set<Tutor> getTutor() {
         return tutor;
     }
 
-    public void setTutor(Tutor tutor) {
+    public void setTutor(Set<Tutor> tutor) {
         this.tutor = tutor;
     }
-    
+
+   
     
 }

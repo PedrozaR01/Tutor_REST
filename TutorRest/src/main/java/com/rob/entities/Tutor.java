@@ -7,15 +7,22 @@ package com.rob.entities;
 import com.rob.entities.Subject;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.ManyToAny;
 
 /**
  *
@@ -44,9 +51,28 @@ public class Tutor implements Serializable {
     private String tutorImg;
     @Column(name = "zip_code")
     private String zipCode;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tutor", targetEntity = Subject.class)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "tutor_subject", joinColumns = {@JoinColumn(name = "tutor_id")},
+           inverseJoinColumns = {
+            @JoinColumn(name = "subject_id")
+        } )
     private Set<Subject> subject = new HashSet<Subject>(0);
 
+    public void addSubject(Subject subject){
+        this.subject.add(subject);
+        subject.getTutor().add(this);
+    }
+    
+    public void removeSubject(Subject subject){
+        this.getSubject().remove(subject);
+        subject.getTutor().remove(this);
+    }
+    
+    public void removeSubjects(){
+        for (Subject subject : new HashSet<>(subject)) {
+            removeSubject(subject);
+        }
+    }
     
     
     public Integer getTutorId() {

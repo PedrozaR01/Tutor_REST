@@ -5,10 +5,10 @@
 package com.rob.services;
 
 import com.rob.entities.TutorJoin;
-import com.rob.repositories.SubjectRepository;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import com.rob.repositories.JoinRepository;
 
 /**
  *
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 public class JoinService {
     
     @Resource
-    private SubjectRepository subRepo;
+    private JoinRepository subRepo;
     
     public List<TutorJoin> getTutorJoin(){
         List<TutorJoin> list = subRepo.fectchTutorInnerJoin();
