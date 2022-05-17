@@ -4,11 +4,13 @@
  */
 package com.rob.services;
 
+import com.rob.entities.Subject;
 import com.rob.entities.TutorJoin;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import com.rob.repositories.JoinRepository;
+import java.util.Optional;
 
 /**
  *
@@ -25,4 +27,5 @@ public class JoinService {
         List<TutorJoin> list = subRepo.fectchTutorInnerJoin();
         return list;
     }
+    
 }

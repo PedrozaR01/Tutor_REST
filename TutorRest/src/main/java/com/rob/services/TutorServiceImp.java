@@ -51,6 +51,14 @@ public class TutorServiceImp implements TutorService {
         return tutorsDto;
     }
     
+     @Override
+    public TutorDTO getTutor(Integer tutorId) {
+    Tutor ttr = tutorRepo.getById(tutorId);
+    TutorDTO tutorDto = mapEntityToDto(ttr);
+    return tutorDto;
+    
+    }
+    
     @Transactional
     @Override
     public TutorDTO UpdateTutor(Integer tutorId, TutorDTO tutor) {
@@ -101,4 +109,6 @@ public class TutorServiceImp implements TutorService {
         responseDto.setSubjects(tutor.getSubject().stream().map(Subject::getSubjectTitle).collect(Collectors.toSet()));
         return responseDto;
     }
+
+   
 }

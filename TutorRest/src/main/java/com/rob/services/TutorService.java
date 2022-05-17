@@ -17,6 +17,8 @@ public interface TutorService {
     
     public List<TutorDTO> getAllTutors();
     
+    public TutorDTO getTutor(Integer tutorId);
+    
     public TutorDTO UpdateTutor(Integer tutorId, TutorDTO tutor);
     
     public String deleteTutor(Integer tutorId);

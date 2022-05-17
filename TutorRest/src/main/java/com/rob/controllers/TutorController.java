@@ -35,6 +35,12 @@ public class TutorController {
         return new ResponseEntity<>(tutors, HttpStatus.OK);
     }
     
+    @GetMapping("/tutors/{id}")
+    public ResponseEntity<TutorDTO> getTutor(@PathVariable (name = "id")Integer id){
+        TutorDTO tutor = tutorService.getTutor(id);
+        return new ResponseEntity<>(tutor, HttpStatus.OK);
+    }
+    
     @PostMapping("/tutors")
     public ResponseEntity<TutorDTO> getAllTutors(@RequestBody TutorDTO tutorDto) {
         TutorDTO tdto = tutorService.addTutor(tutorDto);

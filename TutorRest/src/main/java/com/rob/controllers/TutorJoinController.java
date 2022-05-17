@@ -4,14 +4,17 @@
  */
 package com.rob.controllers;
 
+import com.rob.entities.Subject;
 import com.rob.entities.TutorJoin;
 import com.rob.services.JoinService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -29,4 +32,6 @@ public class TutorJoinController {
     public ResponseEntity<List<TutorJoin>> getTutorSubject(){
         return new ResponseEntity<List<TutorJoin>>(joinServ.getTutorJoin(), HttpStatus.OK);
     }
+    
+ 
 }
