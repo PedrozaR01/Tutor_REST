@@ -28,9 +28,9 @@ public class Appointment {
     @Column(name = "email")
     private String email;
     @Column(name = "tutor_id")
-    private String tutorId;
+    private Integer tutorId;
 
-    public Appointment(Integer appointmentId, String appointmentDate, String name, String email, String tutorId) {
+    public Appointment(Integer appointmentId, String appointmentDate, String name, String email, Integer tutorId) {
         this.appointmentId = appointmentId;
         this.appointmentDate = appointmentDate;
         this.name = name;
@@ -38,11 +38,11 @@ public class Appointment {
         this.tutorId = tutorId;
     }
 
-    public String getTutorId() {
+    public Integer getTutorId() {
         return tutorId;
     }
 
-    public void setTutorId(String tutorId) {
+    public void setTutorId(Integer tutorId) {
         this.tutorId = tutorId;
     }
 
