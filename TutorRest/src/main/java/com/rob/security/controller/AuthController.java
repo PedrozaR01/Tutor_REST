@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin("http://localhost:4200")
 public class AuthController {
     
     @Autowired
@@ -81,6 +81,7 @@ public class AuthController {
     
     @PostMapping("/login")
     public ResponseEntity<JwtDto> Login(@Valid @RequestBody UserLogin userLogin, BindingResult bindingResult){
+        System.out.println(userLogin);
         if(bindingResult.hasErrors()){
             return new ResponseEntity("Error", HttpStatus.BAD_REQUEST);
         }
