@@ -74,9 +74,11 @@ public class AuthController {
         role.add(roleServ.getByRoleName(RoleName.ROLE_STUDENT).get());
         if(newUser.getRoles().contains("tutor"))
             role.add(roleServ.getByRoleName(RoleName.ROLE_TUTOR).get());
+        if(newUser.getRoles().contains("admin"))
+            role.add(roleServ.getByRoleName(RoleName.ROLE_ADMIN).get());
         user.setRole(role);
         userServ.save(user);
-        return new ResponseEntity("User created", HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
     
     @PostMapping("/login")

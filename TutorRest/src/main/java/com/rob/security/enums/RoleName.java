@@ -9,6 +9,6 @@ package com.rob.security.enums;
  * @author Antonio Pedroza
  */
 public enum RoleName {
-    ROLE_TUTOR, ROLE_STUDENT
+    ROLE_TUTOR, ROLE_STUDENT, ROLE_ADMIN
     
 }

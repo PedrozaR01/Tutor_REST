@@ -23,18 +23,15 @@ public class Appointment {
     private Integer appointmentId;
     @Column(name = "appointment_date")
     private String appointmentDate;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "created_by")
+    private String createdBy;
     @Column(name = "tutor_id")
     private Integer tutorId;
 
-    public Appointment(Integer appointmentId, String appointmentDate, String name, String email, Integer tutorId) {
+    public Appointment(Integer appointmentId, String appointmentDate, String createdBy, Integer tutorId) {
         this.appointmentId = appointmentId;
         this.appointmentDate = appointmentDate;
-        this.name = name;
-        this.email = email;
+        this.createdBy = createdBy;
         this.tutorId = tutorId;
     }
 
@@ -48,8 +45,6 @@ public class Appointment {
 
     public Appointment() {
     }
-    
-    
 
     public Integer getAppointmentId() {
         return appointmentId;
@@ -67,20 +62,12 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
 
-    public String getName() {
-        return name;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
     
     
