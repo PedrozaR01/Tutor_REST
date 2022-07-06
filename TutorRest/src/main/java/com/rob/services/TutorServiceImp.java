@@ -85,6 +85,7 @@ public class TutorServiceImp implements TutorService {
         tutor.setLastName(tutorDto.getLastName());
         tutor.setIntro(tutorDto.getIntro());
         tutor.setTutorImg(tutorDto.getTutorImg());
+        tutor.setCreatedBy(tutorDto.getCreatedBy());
         if(null == tutor.getSubject()){
             tutor.setSubject(new HashSet<>());
         }
@@ -92,7 +93,6 @@ public class TutorServiceImp implements TutorService {
         Subject subject = subjectRepo.findBysubjectTitle(subjectTitle);
         if (null == subject) {
             subject = new Subject();
-            subject.setTutor(new HashSet<>());
         }
         subject.setSubjectTitle(subjectTitle);
         tutor.addSubject(subject);
@@ -106,6 +106,7 @@ public class TutorServiceImp implements TutorService {
         responseDto.setLastName(tutor.getLastName());
         responseDto.setTutorImg(tutor.getTutorImg());
         responseDto.setIntro(tutor.getIntro());
+        responseDto.setCreatedBy(tutor.getCreatedBy());
         responseDto.setSubjects(tutor.getSubject().stream().map(Subject::getSubjectTitle).collect(Collectors.toSet()));
         return responseDto;
     }

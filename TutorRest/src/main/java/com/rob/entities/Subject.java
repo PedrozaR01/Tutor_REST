@@ -26,16 +26,14 @@ import javax.persistence.Table;
 @Table(name = "subject")
 public class Subject implements Serializable {
     
-    
-    
     @Id
     @Column(name = "subject_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer subjectId;
     @Column(name = "subject_title")
     private String subjectTitle;
-    @ManyToMany(mappedBy = "subject", cascade = { CascadeType.ALL })
-    private Set<Tutor> tutor = new HashSet<Tutor>();
+    /*@ManyToMany(mappedBy = "subject", cascade = { CascadeType.ALL })
+    private Set<Tutor> tutor = new HashSet<Tutor>();*/
     
     public Integer getSubjectId() {
         return subjectId;
@@ -53,13 +51,13 @@ public class Subject implements Serializable {
         this.subjectTitle = subjectTitle;
     }
 
-    public Set<Tutor> getTutor() {
+    /*public Set<Tutor> getTutor() {
         return tutor;
     }
 
     public void setTutor(Set<Tutor> tutor) {
         this.tutor = tutor;
-    }
+    }*/
 
    
     

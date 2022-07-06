@@ -51,12 +51,10 @@ public class Tutor implements Serializable {
 
     public void addSubject(Subject subject){
         this.subject.add(subject);
-        subject.getTutor().add(this);
     }
     
     public void removeSubject(Subject subject){
         this.getSubject().remove(subject);
-        subject.getTutor().remove(this);
     }
     
     public void removeSubjects(){

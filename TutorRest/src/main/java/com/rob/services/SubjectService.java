@@ -25,7 +25,7 @@ public class SubjectService {
     }
     
     public void Save(Subject subject){
-        repo.save(subject);
+        repo.save(subject);    
     }
     
     public Subject get(Integer Id){

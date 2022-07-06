@@ -18,6 +18,7 @@ public class TutorDTO {
     private String lastName;
     private String intro;
     private String tutorImg;
+    private String createdBy;
     private Set<String> subjects = new HashSet<>();
 
     public Integer getTutor_id() {
@@ -58,6 +59,14 @@ public class TutorDTO {
 
     public void setTutorImg(String tutorImg) {
         this.tutorImg = tutorImg;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     public Set<String> getSubjects() {
